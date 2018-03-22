@@ -18,8 +18,6 @@ export class HomePage {
   avgAttempts: any;
   percentChance: any;
 
-  //lockout
-
   constructor(public navCtrl: NavController) {
 
   }
