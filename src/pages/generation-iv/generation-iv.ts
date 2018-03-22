@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-generation-iv',
   templateUrl: 'generation-iv.html',
+  providers: [
+        ScreenOrientation
+    ]
 })
 export class GenerationIvPage {
 
@@ -18,7 +22,8 @@ export class GenerationIvPage {
   avgAttempts: any;
   percentChance: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private screenOrientation: ScreenOrientation) {
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   ionViewDidLoad() {
