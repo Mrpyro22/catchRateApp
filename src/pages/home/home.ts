@@ -59,12 +59,14 @@ export class HomePage {
       lenResults++;
     }
 
-    for(var i = 0; i < lenResults; i++){
+    for(i = 0; i < lenResults; i++){
       sumResults += results[i];
     }
 
     this.avgAttempts = sumResults/lenResults;
-    this.percentChance = Math.round((1/this.avgAttempts)*100);
+    // this.percentChance = Math.round((1/this.avgAttempts)*100);
+    this.percentChance = 1/this.avgAttempts*100;
+    this.percentChance = this.percentChance.toFixed(2);
   }
 
   checkVariables(){

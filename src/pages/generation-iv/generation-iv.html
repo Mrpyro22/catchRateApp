@@ -1,0 +1,55 @@
+<ion-content class="no-scroll">
+
+  <ion-list>
+
+    <ion-item no-lines class="inputField">
+      <ion-label floating>Max HP</ion-label>
+      <ion-input type="number" [(ngModel)]="maxHP"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines class="inputField">
+      <ion-label floating>Current HP</ion-label>
+      <ion-input type="number" [(ngModel)]="currentHP"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines class="inputField">
+      <ion-label floating>Catch Rate</ion-label>
+      <ion-input type="number" [(ngModel)]="catchRate"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines class="inputField2">
+      <ion-label>Pokeball Type</ion-label>
+      <ion-select [(ngModel)]="pokeball">
+        <ion-option [value]=1>Pokeball</ion-option>
+        <ion-option [value]=1.5>Great Ball</ion-option>
+        <ion-option [value]=2>Ultra Ball</ion-option>
+        <ion-option [value]=3>Repeat Ball</ion-option>
+        <ion-option [value]=3.5>Dusk Ball or Dive Ball</ion-option>
+        <ion-option [value]=4>Quick Ball or Timer Ball</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines class="inputField2">
+      <ion-label>Status Condition</ion-label>
+      <ion-select [(ngModel)]="status">
+        <ion-option [value]=1>None</ion-option>
+        <ion-option [value]=2>Sleep or Frozen</ion-option>
+        <ion-option [value]=1.5>Paralysed, Poisoned or Burned</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="resultsSection">
+      <h2 class="resultLabel">Average Attempts: {{avgAttempts}}</h2>
+      <h2 class="resultLabel">Chance: {{percentChance}}</h2>
+      <div class="calcBtn" (click)="checkVariables()">
+        <div class="circle">
+          <p>
+            Calc!
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </ion-list>
+
+</ion-content>
