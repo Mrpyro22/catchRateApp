@@ -12,6 +12,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 export class GenerationIvPage {
 
   //inputs
+  //Sam has a gay
   maxHP: any;
   currentHP: any;
   catchRate: any;
