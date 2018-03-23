@@ -1,14 +1,13 @@
 page-generation-v {
 
-  .no-scroll .scroll-content{
-    overflow: hidden;
+  .scroll-content{
     background: #C3272B;
   }
 
   .inputField{
     background: #f4f4f4;
     border: none;
-    margin-top: 5vh;
+    margin-top: 4vh;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -21,7 +20,7 @@ page-generation-v {
   .inputField2{
     background: #f4f4f4;
     border: none;
-    margin-top: 5vh;
+    margin-top: 4vh;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -55,7 +54,7 @@ page-generation-v {
   .resultsSection{
     position: absolute;
     margin: auto;
-    bottom: 11vh;
+    bottom: -11vh;
     left: 0;
     right:0;
     width: 75vw;

@@ -14,6 +14,7 @@ export class GenerationVPage {
   pokeball: any;
   status: any;
   etralink: any;
+  darkGrass: any;
 
   //other vars
   avgAttempts: any;
@@ -41,9 +42,9 @@ export class GenerationVPage {
     return 1048560/((16711680/a)**0.5)**0.5;
   }
 
-  calcCatchRate(maxHP, currentHP, catchRate, pokeball, status){
+  calcCatchRate(maxHP, currentHP, catchRate, pokeball, status, darkGrass, etralink){
 
-    var b = this.generateB(((3.0*maxHP-2.0*currentHP)*catchRate*pokeball)/(3.0*maxHP)*status);
+    var b = this.generateB(((3.0*maxHP-2.0*currentHP)*darkGrass*catchRate*pokeball)/(3.0*maxHP)*status*(etralink/100));
     var tests = 1000;
 
     var results = [];
@@ -72,8 +73,8 @@ export class GenerationVPage {
   }
 
   checkVariables(){
-    if(this.maxHP && this.currentHP && this.catchRate && this.pokeball && this.status){
-      this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, this.pokeball, this.status);
+    if(this.maxHP && this.currentHP && this.catchRate && this.pokeball && this.status && this.darkGrass && this.etralink){
+      this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, this.pokeball, this.status, this.darkGrass, this.etralink);
     }
     else{
       this.invalidVar();

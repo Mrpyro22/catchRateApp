@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-// import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 @Component({
   selector: 'page-generation-iv',

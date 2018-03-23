@@ -1,4 +1,4 @@
-<ion-content class="no-scroll">
+<ion-content class="scroll-content">
 
   <ion-list>
 
@@ -39,11 +39,25 @@
     </ion-item>
 
     <ion-item no-lines class="inputField2">
-      <ion-label>Status Condition</ion-label>
-      <ion-select [(ngModel)]="status">
-        <ion-option [value]=1>None</ion-option>
-        <ion-option [value]=2>Sleep or Frozen</ion-option>
-        <ion-option [value]=1.5>Paralysed, Poisoned or Burned</ion-option>
+      <ion-label>EntraLink Ratio</ion-label>
+      <ion-select [(ngModel)]="etralink">
+        <ion-option [value]=100>None</ion-option>
+        <ion-option [value]=110>Level 1 (110%)</ion-option>
+        <ion-option [value]=120>Level 2 (120%)</ion-option>
+        <ion-option [value]=130>Level 3 (130%)</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines class="inputField2">
+      <ion-label>Pokemon Caught (Dark Grass)</ion-label>
+      <ion-select [(ngModel)]="darkGrass">
+        <ion-option [value]=1>Regular grass</ion-option>
+        <ion-option [value]=1.0>More than 600</ion-option>
+        <ion-option [value]=0.8999>451 to 600</ion-option>
+        <ion-option [value]=0.8>301 to 450</ion-option>
+        <ion-option [value]=0.6999>151 to 300</ion-option>
+        <ion-option [value]=0.5>31 to 150</ion-option>
+        <ion-option [value]=0.3>less than 31</ion-option>
       </ion-select>
     </ion-item>
 
