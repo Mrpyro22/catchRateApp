@@ -29,7 +29,7 @@ export class GenerationVPage {
 
   shakes(b){
     var numberOfShakes = 0
-    for(var i = 0; i < 4; i++){
+    for(var i = 0; i < 3; i++){
       var randomInt = Math.floor(Math.random() * (65535 - 0 + 1)) + 0;
       if(randomInt < b){
         numberOfShakes++;
@@ -54,7 +54,7 @@ export class GenerationVPage {
     for(var i = 0; i < tests; i++) {
       var test = this.shakes(b);
       var numberOfTries = 1;
-      while(test < 4){
+      while(test < 3){
         numberOfTries++;
         test = this.shakes(b);
       }
