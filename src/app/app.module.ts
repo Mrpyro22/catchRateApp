@@ -7,11 +7,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { GenerationIvPage } from '../pages/generation-iv/generation-iv';
+import { GenerationVPage } from '../pages/generation-v/generation-v';
+import { GenerationViPage } from '../pages/generation-vi/generation-vi';
+import { SettingsPage } from '../pages/settings/settings';
+import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    GenerationIvPage,
+    GenerationVPage,
+    GenerationViPage,
+    SettingsPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -20,7 +29,12 @@ import { GenerationIvPage } from '../pages/generation-iv/generation-iv';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    GenerationIvPage,
+    GenerationVPage,
+    GenerationViPage,
+    SettingsPage,
+    TabsPage
   ],
   providers: [
     StatusBar,
