@@ -48,7 +48,7 @@ export class GenerationIvPage {
   calcCatchRate(maxHP, currentHP, catchRate, pokeball, status){
 
     var b = this.generateB(((3.0*maxHP-2.0*currentHP)*catchRate*pokeball)/(3.0*maxHP)*status);
-    var tests = 1000;
+    var tests = 10000;
 
     var results = [];
     var lenResults = 0;
@@ -70,13 +70,20 @@ export class GenerationIvPage {
     }
 
     this.avgAttempts = sumResults/lenResults;
-    // this.percentChance = Math.round((1/this.avgAttempts)*100);
     this.percentChance = 1/this.avgAttempts*100;
     this.percentChance = this.percentChance.toFixed(2);
+    console.log(this.percentChance);
+
+    // let getClass = document.getElementsByClassName('rotate')[0];
+    // getClass.classList.remove("rotate");   //remove the class
+    // getClass.classList.add("circle");   //add the class
   }
 
   checkVariables(){
     if(this.maxHP && this.currentHP && this.catchRate && this.pokeball && this.status){
+      let getClass = document.getElementsByClassName('circle')[0];
+      getClass.classList.remove("circle");   //remove the class
+      getClass.classList.add("rotate");   //add the class
       this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, this.pokeball, this.status);
     }
     else{
