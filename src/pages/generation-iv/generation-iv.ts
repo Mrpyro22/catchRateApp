@@ -73,7 +73,6 @@ export class GenerationIvPage {
     this.avgAttempts = sumResults/lenResults;
     this.percentChance = 1/this.avgAttempts*100;
     this.percentChance = this.percentChance.toFixed(2);
-    console.log(this.percentChance);
 
     this.displayResults();
   }

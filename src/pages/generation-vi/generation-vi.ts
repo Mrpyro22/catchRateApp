@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-generation-vi',
@@ -19,7 +20,7 @@ export class GenerationViPage {
   avgAttempts: any;
   percentChance: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -66,13 +67,17 @@ export class GenerationViPage {
     }
 
     this.avgAttempts = sumResults/lenResults;
-    // this.percentChance = Math.round((1/this.avgAttempts)*100);
     this.percentChance = 1/this.avgAttempts*100;
     this.percentChance = this.percentChance.toFixed(2);
+
+    this.displayResults();
   }
 
   checkVariables(){
     if(this.maxHP && this.currentHP && this.catchRate && this.pokeball && this.status && this.bonus){
+      let getClass = document.getElementsByClassName('circle')[0];
+      getClass.classList.remove("circle");
+      getClass.classList.add("rotate");
       this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, this.pokeball, this.status, this.bonus);
     }
     else{
@@ -81,7 +86,35 @@ export class GenerationViPage {
   }
 
   invalidVar(){
-    console.log('invalid');
+    let alert = this.alertCtrl.create({
+        title: 'Invalid Calculation',
+        subTitle: 'You may have missed an input field...',
+        buttons: ['Dismiss']
+      });
+      alert.present();
+  }
+
+  displayResults(){
+    let alert = this.alertCtrl.create({
+      title: 'Results',
+      message: 'Chance to catch: '+this.percentChance+'%'+'<br>'+'Average attempts to catch: '+this.avgAttempts,
+      buttons: [
+        {
+          text: 'Dismiss',
+          role: 'cancel',
+          handler: () => {
+            this.stopAnimation();
+          }
+        },
+      ]
+    });
+    alert.present();
+  }
+
+  stopAnimation(){
+    let getClass = document.getElementsByClassName('rotate')[0];
+    getClass.classList.remove("rotate");
+    getClass.classList.add("circle");
   }
 
 }
