@@ -19,6 +19,7 @@ export class GenerationViPage {
   //other vars
   avgAttempts: any;
   percentChance: any;
+  className: any = 'circle';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
@@ -45,7 +46,7 @@ export class GenerationViPage {
   calcCatchRate(maxHP, currentHP, catchRate, pokeball, status, bonus){
 
     var b = this.generateB(((3.0*maxHP-2.0*currentHP)*catchRate*pokeball)/(3.0*maxHP)*status*bonus);
-    var tests = 1000;
+    var tests = 10000;
 
     var results = [];
     var lenResults = 0;
@@ -75,9 +76,7 @@ export class GenerationViPage {
 
   checkVariables(){
     if(this.maxHP && this.currentHP && this.catchRate && this.pokeball && this.status && this.bonus){
-      let getClass = document.getElementsByClassName('circle')[0];
-      getClass.classList.remove("circle");
-      getClass.classList.add("rotate");
+      this.startAnimation();
       this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, this.pokeball, this.status, this.bonus);
     }
     else{
@@ -112,9 +111,11 @@ export class GenerationViPage {
   }
 
   stopAnimation(){
-    let getClass = document.getElementsByClassName('rotate')[0];
-    getClass.classList.remove("rotate");
-    getClass.classList.add("circle");
+    this.className = 'circle';
+  }
+
+  startAnimation(){
+    this.className = 'rotate';
   }
 
 }

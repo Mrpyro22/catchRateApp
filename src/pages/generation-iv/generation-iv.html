@@ -28,7 +28,7 @@
         <ion-option [value]=4>Quick Ball or Timer Ball</ion-option>
       </ion-select>
     </ion-item>
-    
+
     <ion-item no-lines class="inputField2">
       <ion-label>Status Condition</ion-label>
       <ion-select [(ngModel)]="status">
@@ -39,7 +39,7 @@
     </ion-item>
 
     <div class="calcBtn" (click)="checkVariables()">
-      <div class="circle">
+      <div [class]="className">
         <img class="pokeball" src="assets/imgs/pokeball.png">
       </div>
     </div>

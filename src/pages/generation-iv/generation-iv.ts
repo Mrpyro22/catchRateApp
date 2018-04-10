@@ -22,6 +22,7 @@ export class GenerationIvPage {
   //other vars
   avgAttempts: any;
   percentChance: any;
+  className: any = 'circle';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private screenOrientation: ScreenOrientation, private alertCtrl: AlertController) {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
@@ -79,9 +80,7 @@ export class GenerationIvPage {
 
   checkVariables(){
     if(this.maxHP && this.currentHP && this.catchRate && this.pokeball && this.status){
-      let getClass = document.getElementsByClassName('circle')[0];
-      getClass.classList.remove("circle");
-      getClass.classList.add("rotate");
+      this.startAnimation();
       this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, this.pokeball, this.status);
     }
     else{
@@ -116,9 +115,11 @@ export class GenerationIvPage {
   }
 
   stopAnimation(){
-    let getClass = document.getElementsByClassName('rotate')[0];
-    getClass.classList.remove("rotate");
-    getClass.classList.add("circle");
+    this.className = 'circle';
+  }
+
+  startAnimation(){
+    this.className = 'rotate';
   }
 
 }
