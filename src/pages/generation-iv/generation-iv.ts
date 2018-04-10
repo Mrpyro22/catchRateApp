@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-generation-iv',
@@ -22,7 +23,7 @@ export class GenerationIvPage {
   avgAttempts: any;
   percentChance: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private screenOrientation: ScreenOrientation) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private screenOrientation: ScreenOrientation, private alertCtrl: AlertController) {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
@@ -74,16 +75,14 @@ export class GenerationIvPage {
     this.percentChance = this.percentChance.toFixed(2);
     console.log(this.percentChance);
 
-    // let getClass = document.getElementsByClassName('rotate')[0];
-    // getClass.classList.remove("rotate");   //remove the class
-    // getClass.classList.add("circle");   //add the class
+    this.displayResults();
   }
 
   checkVariables(){
     if(this.maxHP && this.currentHP && this.catchRate && this.pokeball && this.status){
       let getClass = document.getElementsByClassName('circle')[0];
-      getClass.classList.remove("circle");   //remove the class
-      getClass.classList.add("rotate");   //add the class
+      getClass.classList.remove("circle");
+      getClass.classList.add("rotate");
       this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, this.pokeball, this.status);
     }
     else{
@@ -92,7 +91,35 @@ export class GenerationIvPage {
   }
 
   invalidVar(){
+    let alert = this.alertCtrl.create({
+        title: 'Invalid Calculation',
+        subTitle: 'You may have missed an input field...',
+        buttons: ['Dismiss']
+      });
+      alert.present();
+  }
 
+  displayResults(){
+    let alert = this.alertCtrl.create({
+      title: 'Results',
+      message: 'Chance to catch: '+this.percentChance+'%'+'<br>'+'Average attempts to catch: '+this.avgAttempts,
+      buttons: [
+        {
+          text: 'Dismiss',
+          role: 'cancel',
+          handler: () => {
+            this.stopAnimation();
+          }
+        },
+      ]
+    });
+    alert.present();
+  }
+
+  stopAnimation(){
+    let getClass = document.getElementsByClassName('rotate')[0];
+    getClass.classList.remove("rotate");
+    getClass.classList.add("circle");
   }
 
 }
