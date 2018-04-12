@@ -1,3 +1,27 @@
-<ion-content padding>
+<ion-content class="scroll-content">
+
+<div class="logo">
+  <img [src]="imgSrc">
+</div>
+
+<div class="block1">
+  <ion-item>About Us</ion-item>
+  <ion-item>Share Via Facebook</ion-item>
+  <ion-item no-lines>Share Via Text</ion-item>
+</div>
+
+<div class="block2">
+  <ion-item>
+    <ion-label>Theme</ion-label>
+      <ion-select [(ngModel)]="theme" (ionChange)="onChange()">
+        <ion-option [value]=1>Pokeball</ion-option>
+        <ion-option [value]=2>Great Ball</ion-option>
+        <ion-option [value]=3>Ultra Ball</ion-option>
+        <ion-option [value]=4>Master Ball</ion-option>
+      </ion-select>
+  </ion-item>
+  <ion-item>Set Accuracy</ion-item>
+  <ion-item no-lines>Additional Info</ion-item>
+</div>
 
 </ion-content>
