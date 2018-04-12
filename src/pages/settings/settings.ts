@@ -25,7 +25,6 @@ export class SettingsPage {
   }
 
   onChange(){
-    console.log('log')
     if(this.theme == 1)
       this.imgSrc = 'assets/imgs/pokeball.png';
     else if(this.theme == 2)
