@@ -18,11 +18,14 @@ export class GraphModalPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
+  //called when the modal is loaded
   ionViewDidLoad() {
     console.log('ionViewDidLoad GraphModalPage');
   }
 
+  //function to close the modal
   closeModal() {
+    //when called, the ViewController dismisses the modal
     this.viewCtrl.dismiss();
   }
 

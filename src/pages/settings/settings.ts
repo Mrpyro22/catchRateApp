@@ -24,8 +24,12 @@ export class SettingsPage {
     console.log('ionViewDidLoad SettingsPage');
   }
 
+  //function that is called when the theme setting is changed. this function will change the theme of the app
+  //for now, the function just changes the theme on the setting page, this is reflected in the change of pokeball icon on the top of the page
   onChange(){
+    //the theme is checked against the number that corresponds to each theme. if they match, change to that theme
     if(this.theme == 1)
+      //imgSrc is set to a string giving the file path of the image to be used for that theme
       this.imgSrc = 'assets/imgs/pokeball.png';
     else if(this.theme == 2)
       this.imgSrc = 'assets/imgs/greatball.png';
