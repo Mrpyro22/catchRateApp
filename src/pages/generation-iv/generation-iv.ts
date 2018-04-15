@@ -35,7 +35,7 @@ export class GenerationIvPage {
   //shakes function
   //returns number of shakes on an attempted catch. 4 shakes is a catch, any less is a failed attempt.
   shakes(b){
-    //initialise shakes to 0
+    //initialise numberOfShakes to 0
   	var numberOfShakes = 0;
     // make four attemps, one for each shake
   	for(var i = 0; i < 4; i++){
