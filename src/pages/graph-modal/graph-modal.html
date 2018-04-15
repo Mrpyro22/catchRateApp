@@ -1,0 +1,57 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>Data and Graphs</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="scroll-content">
+
+  <div class="infoCard">
+
+    <div class="modalGraph">
+      <img src="assets/imgs/graph.png"/>
+    </div>
+
+    <div class="modalText">
+      <p>
+        Here you may see how different parameters effect catch rates!
+      </p>
+
+      <p>
+        Enter the desired parameters in the fields and see on the graph how your chance to capture will be effected!
+      </p>
+    </div>
+
+    <ion-item no-lines class="inputField">
+      <ion-label>Generation</ion-label>
+      <ion-select>
+        <ion-option [value]=4>Gen IV</ion-option>
+        <ion-option [value]=5>Gen V</ion-option>
+        <ion-option [value]=6>Gen VI</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines class="inputField">
+      <ion-label>Statistic</ion-label>
+      <ion-select>
+        <ion-option [value]=1>Max HP</ion-option>
+        <ion-option [value]=2>Current HP</ion-option>
+        <ion-option [value]=3>Pokeball</ion-option>
+        <ion-option [value]=4>Status</ion-option>
+        <ion-option [value]=5>Catch Rate</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="modalImage">
+      <img src="assets/imgs/pokeball.png"/>
+    </div>
+
+  </div>
+
+</ion-content>

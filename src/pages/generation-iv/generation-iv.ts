@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { ModalController, NavController, NavParams } from 'ionic-angular';
+// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-generation-iv',
   templateUrl: 'generation-iv.html',
   providers: [
-        ScreenOrientation
+        // ScreenOrientation
     ]
 })
 export class GenerationIvPage {
@@ -24,7 +24,7 @@ export class GenerationIvPage {
   percentChance: any;
   className: any = 'circle';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private screenOrientation: ScreenOrientation, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public modalCtrl: ModalController) {
     // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 

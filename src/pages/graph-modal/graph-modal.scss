@@ -1,0 +1,57 @@
+page-graph-modal {
+
+  .scroll-content{
+    background: #bd3736;
+  }
+
+  .infoCard{
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: 80vw;
+    height: 103vh;
+    margin-top: 6vh;
+    margin-bottom: 6vh;
+    border-radius: 5px;
+    background: #efefef;
+    box-shadow: 0px 0px 5px 0px;
+  }
+
+  .modalText{
+    margin-left: 4vw;
+    margin-right: 4vw;
+    margin-top: 3vh;
+    font-size: 100%;
+  }
+
+  .modalImage{
+    text-align: center;
+    img{
+      width: 20vw;
+      margin-top: 5vh;
+    }
+  }
+
+  .modalGraph{
+    text-align: center;
+    img{
+      width: 70vw;
+      margin-top: 3vh;
+    }
+  }
+
+  .inputField{
+    background: #f4f4f4;
+    border: none;
+    margin-top: 4vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 10px 0px;
+    width: 70vw;
+  }
+
+}

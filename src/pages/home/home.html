@@ -12,19 +12,19 @@
 
   <ion-row>
     <ion-col>
-      <ion-item no-lines class="infoBlock">
+      <ion-item no-lines class="infoBlock" (click)='displayInfoIV()'>
         <ion-label>IV</ion-label>
       </ion-item>
     </ion-col>
 
     <ion-col>
-      <ion-item no-lines class="infoBlock">
+      <ion-item no-lines class="infoBlock" (click)='displayInfoV()'>
         <ion-label>V</ion-label>
       </ion-item>
     </ion-col>
 
     <ion-col>
-      <ion-item no-lines class="infoBlock">
+      <ion-item no-lines class="infoBlock" (click)='displayInfoVI()'>
         <ion-label>VI</ion-label>
       </ion-item>
     </ion-col>
@@ -50,8 +50,8 @@
     </ion-col>
 
     <ion-col>
-      <ion-item no-lines class="infoBlock2">
-        <ion-label>Something else</ion-label>
+      <ion-item no-lines class="infoBlock2" (click)='displayGraphs()'>
+        <ion-label>Data and Graphs</ion-label>
       </ion-item>
     </ion-col>
   </ion-row>
