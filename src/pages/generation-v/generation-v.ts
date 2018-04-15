@@ -20,7 +20,11 @@ export class GenerationVPage {
   //other vars
   avgAttempts: any;
   percentChance: any;
+
+  //scss change vars
   className: any = 'circle';
+  backgroundClass: any = 'scroll-content-pokeball';
+  imgSrc: any = 'assets/imgs/pokeball.png';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
