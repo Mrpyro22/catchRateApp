@@ -12,10 +12,98 @@
 
 <ion-content class="scroll-content">
 
-  <div class="infoCard">
+  <div>
+    <ion-item no-lines class="inputField">
+      <ion-label>Pokemon</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
 
+    <ion-item no-lines class="inputField">
+      <ion-label>Level</ion-label>
+      <ion-input type="tel" maxlength="3"></ion-input>
+    </ion-item>
 
+    <ion-item no-lines class="inputField">
+      <ion-label>HP When Caught</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
 
+    <ion-item no-lines class="inputField">
+      <ion-label>Attempts to Catch</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines class="inputField">
+      <ion-label>Status</ion-label>
+      <ion-select>
+        <ion-option [value]=1>None</ion-option>
+        <ion-option [value]=2>Sleep or Frozen</ion-option>
+        <ion-option [value]=1.5>Paralysed, Poisoned or Burned</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines class="inputField">
+      <ion-label>Generation</ion-label>
+      <ion-select>
+        <ion-option [value]=4>Gen II/IV</ion-option>
+        <ion-option [value]=5>Gen V</ion-option>
+        <ion-option [value]=6>Gen VI/VII</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines class="inputField">
+      <ion-label>Date Caught</ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY"></ion-datetime>
+    </ion-item>
+  </div>
+
+  <div class="calcBtn">
+    <div class="modalImage">
+      <img class="pokeball" src="assets/imgs/pokeball.png">
+    </div>
+  </div>
+
+  <div>
+    <ion-list class="listClass">
+
+      <ion-list-header>
+        Catches
+      </ion-list-header>
+
+      <ion-item-sliding>
+        <ion-item>
+          Zapdos 08/05/2017
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button>Edit</button>
+          <button ion-button color="danger">Delete</button>
+          <button ion-button>View</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+      <ion-item-sliding>
+        <ion-item>
+          Moltres 09/05/2017
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button>Edit</button>
+          <button ion-button color="danger">Delete</button>
+          <button ion-button>View</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+      <ion-item-sliding>
+        <ion-item>
+          Articuno 15/05/2017
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button>Edit</button>
+          <button ion-button color="danger">Delete</button>
+          <button ion-button>View</button>
+        </ion-item-options>
+      </ion-item-sliding>
+
+    </ion-list>
   </div>
 
 </ion-content>
