@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-// import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-generation-iv',
   templateUrl: 'generation-iv.html',
   providers: [
-        // ScreenOrientation
+
     ]
 })
 export class GenerationIvPage {
@@ -25,7 +24,6 @@ export class GenerationIvPage {
   className: any = 'circle';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
   }
 
   ionViewDidLoad() {
