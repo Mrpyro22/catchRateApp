@@ -3,17 +3,17 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 
 @IonicPage()
 @Component({
-  selector: 'page-graph-modal',
-  templateUrl: 'graph-modal.html',
+  selector: 'page-history-modal',
+  templateUrl: 'history-modal.html',
 })
-export class GraphModalPage {
+export class HistoryModalPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
   //called when the modal is loaded
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GraphModalPage');
+    console.log('ionViewDidLoad HistoryModalPage');
   }
 
   //function to close the modal

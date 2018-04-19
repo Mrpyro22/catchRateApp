@@ -46,4 +46,11 @@ export class HomePage {
     graphModal.present();
   }
 
+  //generates a modal for the my catches (history) screen
+  displayHistory(){
+    //create the modal and present it
+    const historyModal = this.modalCtrl.create('HistoryModalPage');
+    historyModal.present();
+  }
+
 }
