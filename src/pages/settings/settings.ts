@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the SettingsPage page.
@@ -14,10 +15,31 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class SettingsPage {
 
-  theme: any = 1;
-  imgSrc: any = 'assets/imgs/pokeball.png';
+  theme: any;
+  imgSrc: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
+
+    this.storage.get("theme").then((val) => {
+      this.theme = val;
+    });
+
+    if(this.theme == 1){
+      this.imgSrc = 'assets/imgs/pokeball.png';
+    }
+    else if(this.theme == 2){
+      this.imgSrc = 'assets/imgs/greatball.png';
+    }
+    else if(this.theme == 3){
+      this.imgSrc = 'assets/imgs/ultraball.png';
+    }
+    else if(this.theme == 4){
+      this.imgSrc = 'assets/imgs/masterball.png';
+    }
+    else {
+      this.theme = 1;
+      this.imgSrc = 'assets/imgs/pokeball.png';
+    }
   }
 
   ionViewDidLoad() {
@@ -28,15 +50,20 @@ export class SettingsPage {
   //for now, the function just changes the theme on the setting page, this is reflected in the change of pokeball icon on the top of the page
   onChange(){
     //the theme is checked against the number that corresponds to each theme. if they match, change to that theme
-    if(this.theme == 1)
+    if(this.theme == 1){
       //imgSrc is set to a string giving the file path of the image to be used for that theme
       this.imgSrc = 'assets/imgs/pokeball.png';
-    else if(this.theme == 2)
+      this.storage.set("theme", 1);
+    } else if(this.theme == 2){
       this.imgSrc = 'assets/imgs/greatball.png';
-    else if(this.theme == 3)
+      this.storage.set("theme", 2);
+    } else if(this.theme == 3){
       this.imgSrc = 'assets/imgs/ultraball.png';
-    else if(this.theme == 4)
+      this.storage.set("theme", 3);
+    } else if(this.theme == 4){
       this.imgSrc = 'assets/imgs/masterball.png';
+      this.storage.set("theme", 4);
+    }
   }
 
 }
