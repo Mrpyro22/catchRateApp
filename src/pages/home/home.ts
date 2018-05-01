@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController, NavController, NavParams } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -7,7 +8,31 @@ import { ModalController, NavController, NavParams } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  //scss change vars
+  theme: any;
+  backgroundClass: any = 'scroll-content-ultraball';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private storage: Storage) {
+
+    this.storage.get("theme").then((val) => {
+      this.theme = val;
+      console.log(this.theme);
+      if(this.theme == 1){
+        this.backgroundClass = 'scroll-content-pokeball';
+      }
+      else if(this.theme == 2){
+        this.backgroundClass = 'scroll-content-greatball';
+      }
+      else if(this.theme == 3){
+        this.backgroundClass = 'scroll-content-ultraball';
+      }
+      else if(this.theme == 4){
+        this.backgroundClass = 'scroll-content-masterball';
+      }
+      else{
+        this.backgroundClass = 'scroll-content-pokeball';
+      }
+    });
 
   }
 

@@ -17,9 +17,9 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      this.storage.get("theme").then((val) => {
+      this.storage.get('theme').then((val) => {
         if(val == null){
-          this.storage.set("theme", 1);
+          this.storage.set('theme', 1);
         }
       });
     });

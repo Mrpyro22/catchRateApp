@@ -1,4 +1,4 @@
-<ion-content class="scroll-content">
+<ion-content [class]="backgroundClass">
 
   <ion-list>
 
@@ -51,7 +51,7 @@
 
     <div class="calcBtn" (click)="checkVariables()">
       <div [class]="className">
-        <img class="pokeball" src="assets/imgs/pokeball.png">
+        <img class="pokeball" [src]="imgSrc">
       </div>
     </div>
 

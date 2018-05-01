@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-generation-iv',
@@ -21,9 +22,40 @@ export class GenerationIvPage {
   //other vars
   avgAttempts: any;
   percentChance: any;
-  className: any = 'circle';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+  //scss change vars
+  theme: any;
+  className: any = 'circle';
+  backgroundClass: any = 'scroll-content-ultraball';
+  imgSrc: any = 'assets/imgs/pokeball.png';
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private storage: Storage) {
+
+    this.storage.get("theme").then((val) => {
+      this.theme = val;
+      console.log(this.theme);
+      if(this.theme == 1){
+        this.imgSrc = 'assets/imgs/pokeball.png';
+        this.backgroundClass = 'scroll-content-pokeball';
+      }
+      else if(this.theme == 2){
+        this.imgSrc = 'assets/imgs/greatball.png';
+        this.backgroundClass = 'scroll-content-greatball';
+      }
+      else if(this.theme == 3){
+        this.imgSrc = 'assets/imgs/ultraball.png';
+        this.backgroundClass = 'scroll-content-ultraball';
+      }
+      else if(this.theme == 4){
+        this.imgSrc = 'assets/imgs/masterball.png';
+        this.backgroundClass = 'scroll-content-masterball';
+      }
+      else{
+        this.imgSrc = 'assets/imgs/pokeball.png';
+        this.backgroundClass = 'scroll-content-pokeball';
+      }
+    });
+
   }
 
   ionViewDidLoad() {
