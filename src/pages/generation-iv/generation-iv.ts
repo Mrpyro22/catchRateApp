@@ -63,7 +63,6 @@ export class GenerationIvPage {
   }
 
   ionViewWillEnter(){
-    console.log("runs");
     this.storage.get("theme").then((val) => {
       this.theme = val;
       console.log(this.theme);
