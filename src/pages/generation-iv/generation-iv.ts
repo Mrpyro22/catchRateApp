@@ -62,6 +62,34 @@ export class GenerationIvPage {
     console.log('ionViewDidLoad GenerationIvPage');
   }
 
+  ionViewWillEnter(){
+    console.log("runs");
+    this.storage.get("theme").then((val) => {
+      this.theme = val;
+      console.log(this.theme);
+      if(this.theme == 1){
+        this.imgSrc = 'assets/imgs/pokeball.png';
+        this.backgroundClass = 'scroll-content-pokeball';
+      }
+      else if(this.theme == 2){
+        this.imgSrc = 'assets/imgs/greatball.png';
+        this.backgroundClass = 'scroll-content-greatball';
+      }
+      else if(this.theme == 3){
+        this.imgSrc = 'assets/imgs/ultraball.png';
+        this.backgroundClass = 'scroll-content-ultraball';
+      }
+      else if(this.theme == 4){
+        this.imgSrc = 'assets/imgs/masterball.png';
+        this.backgroundClass = 'scroll-content-masterball';
+      }
+      else{
+        this.imgSrc = 'assets/imgs/pokeball.png';
+        this.backgroundClass = 'scroll-content-pokeball';
+      }
+    });
+  }
+
   //shakes function
   //returns number of shakes on an attempted catch. 4 shakes is a catch, any less is a failed attempt.
   shakes(b){
