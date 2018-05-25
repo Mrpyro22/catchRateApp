@@ -30,7 +30,9 @@ export class GenerationIvPage {
   imgSrc: any = 'assets/imgs/pokeball.png';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private storage: Storage) {
+  }
 
+  ionViewDidEnter(){
     this.storage.get("theme").then((val) => {
       this.theme = val;
       console.log(this.theme);
@@ -55,7 +57,6 @@ export class GenerationIvPage {
         this.backgroundClass = 'scroll-content-pokeball';
       }
     });
-
   }
 
   ionViewDidLoad() {

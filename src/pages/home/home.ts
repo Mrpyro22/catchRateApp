@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ModalController, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 @Component({
   selector: 'page-home',
@@ -12,8 +13,11 @@ export class HomePage {
   theme: any;
   backgroundClass: any = 'scroll-content-ultraball';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private storage: Storage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, private storage: Storage,
+  private iab: InAppBrowser) {
+  }
 
+  ionViewDidEnter(){
     this.storage.get("theme").then((val) => {
       this.theme = val;
       console.log(this.theme);
@@ -33,7 +37,6 @@ export class HomePage {
         this.backgroundClass = 'scroll-content-pokeball';
       }
     });
-
   }
 
   //generates a modal for generation IV. Information modal for all generations uses the same modal but different data is passed to the modal
@@ -76,6 +79,16 @@ export class HomePage {
     //create the modal and present it
     const historyModal = this.modalCtrl.create('HistoryModalPage');
     historyModal.present();
+  }
+
+  openStatCalc(){
+    const browser = this.iab.create('http://www.psypokes.com/dex/stats.php');
+    browser.show()
+  }
+
+  openAlgorithms(){
+    const browser = this.iab.create('https://www.dragonflycave.com/mechanics/gen-iii-iv-capturing');
+    browser.show()
   }
 
 }
