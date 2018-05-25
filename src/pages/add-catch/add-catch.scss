@@ -1,4 +1,4 @@
-page-history-modal {
+page-add-catch {
 
   .scroll-content{
     background: #efefef;
@@ -15,20 +15,6 @@ page-history-modal {
     border-radius: 5px;
     background: #efefef;
     box-shadow: 0px 0px 5px 0px;
-  }
-
-  .infoBlock2{
-    background: white;
-    border: none;
-    margin-top: 4vh;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0px 0px 10px 0px;
-    width: 85vw;
-    text-align: center;
   }
 
   .inputField{
@@ -78,7 +64,7 @@ page-history-modal {
       background-color: #222;
       border-radius: 50%;
       box-shadow: 0px 0px 10px 0px;
-      margin-top: -5vh;
+      margin-top: 5vh;
     }
 
     .rotate{
@@ -94,6 +80,10 @@ page-history-modal {
       box-shadow: 0px 0px 10px 0px;
       margin-top: -5vh;
     }
+  }
+
+  .pokeball{
+
   }
 
 }

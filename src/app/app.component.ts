@@ -22,6 +22,11 @@ export class MyApp {
           this.storage.set('theme', 1);
         }
       });
+      this.storage.get('items').then((val) => {
+        if(val == null){
+          this.storage.set('items', []);
+        }
+      });
     });
   }
 }
