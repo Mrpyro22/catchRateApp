@@ -10,7 +10,7 @@
 </ion-header>
 
 
-<ion-content class="scroll-content">
+<ion-content [class]="backgroundClass">
 
   <div class="infoCard">
 
@@ -29,7 +29,7 @@
 
     <ion-item no-lines class="inputField">
       <ion-label>Statistic</ion-label>
-      <ion-select [(ngModel)]="statistic" (ionChange)="onChange()">
+      <ion-select [(ngModel)]="statistic">
         <ion-option [value]=1>Max HP</ion-option>
         <ion-option [value]=2>Current HP</ion-option>
         <ion-option [value]=3>Pokeball</ion-option>
@@ -38,8 +38,10 @@
       </ion-select>
     </ion-item>
 
-    <div class="modalImage">
-      <img src="assets/imgs/pokeball.png"/>
+    <div class="calcBtn" (click)="makeGraph()">
+      <div [class]="className">
+        <img class='pokeball' [src]="imgSrc">
+      </div>
     </div>
 
   </div>
