@@ -22,7 +22,7 @@ page-graph-modal {
     left: 0;
     right: 0;
     width: 80vw;
-    height: 93vh;
+    height: 158vh;
     margin-top: 6vh;
     margin-bottom: 6vh;
     border-radius: 5px;
@@ -54,6 +54,19 @@ page-graph-modal {
   }
 
   .inputField{
+    background: #f4f4f4;
+    border: none;
+    margin-top: 4vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0px 0px 10px 0px;
+    width: 70vw;
+  }
+
+  .inputField2{
     background: #f4f4f4;
     border: none;
     margin-top: 4vh;

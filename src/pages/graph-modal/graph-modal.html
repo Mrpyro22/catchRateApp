@@ -38,7 +38,43 @@
       </ion-select>
     </ion-item>
 
-    <div class="calcBtn" (click)="makeGraph()">
+    <ion-item no-lines class="inputField">
+      <ion-label floating>Max HP</ion-label>
+      <ion-input type="tel" [(ngModel)]="maxHP"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines class="inputField">
+      <ion-label floating>Current HP</ion-label>
+      <ion-input type="tel" [(ngModel)]="currentHP"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines class="inputField">
+      <ion-label floating>Catch Rate</ion-label>
+      <ion-input type="tel" [(ngModel)]="catchRate"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines class="inputField2">
+      <ion-label>Pokeball Type</ion-label>
+      <ion-select [(ngModel)]="pokeball">
+        <ion-option [value]=1>Pokeball</ion-option>
+        <ion-option [value]=1.5>Great Ball</ion-option>
+        <ion-option [value]=2>Ultra Ball</ion-option>
+        <ion-option [value]=3>Repeat Ball</ion-option>
+        <ion-option [value]=3.5>Dusk Ball or Dive Ball</ion-option>
+        <ion-option [value]=4>Quick Ball or Timer Ball</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item no-lines class="inputField2">
+      <ion-label>Status Condition</ion-label>
+      <ion-select [(ngModel)]="status">
+        <ion-option [value]=1>None</ion-option>
+        <ion-option [value]=2>Sleep or Frozen</ion-option>
+        <ion-option [value]=1.5>Paralysed, Poisoned or Burned</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <div class="calcBtn" (click)="checkVariables()">
       <div [class]="className">
         <img class='pokeball' [src]="imgSrc">
       </div>
