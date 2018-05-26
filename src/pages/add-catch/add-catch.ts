@@ -103,30 +103,6 @@ export class AddCatchPage {
     }
   }
 
-  // select(){
-  //   let loading = this.loadingCtrl.create({
-  //     content: 'Please wait...'
-  //   });
-  //   console.log('yeet');
-  //
-  //   this.imagePicker.getPictures(this.options).then((results) => {
-  //
-  //     loading.present();
-  //     for (var i = 0; i < results.length; i++) {
-  //           this.base64.encodeFile(results[i]).then((base64File: string) => {
-  //             let base64Image = base64File;
-  //             this.image = base64Image;
-  //             this.imageStatus = 'Image Accepted'
-  //           }, (err) => {
-  //             console.log(err);
-  //           });
-  //     }
-  //     loading.dismiss();
-  //
-  //
-  //   }, (err) => { });
-  // }
-
   imageSelected(files) {
     if(files.length > 0) {
       alert("Image Selected:" + files[0].name);
