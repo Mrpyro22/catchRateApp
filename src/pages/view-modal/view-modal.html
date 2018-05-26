@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar color="dark">
+    <ion-title>View Pokemon</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">Close</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content [class]="backgroundClass">
+
+  <div class="infoCard">
+    <div class="headingClass">
+      <h1>{{info.pokemonName}}</h1>
+      <p>
+        Level: {{info.level}}<br />
+        HP When Caught: {{info.currentHP}}<br />
+        Attempts to Catch: {{info.attempts}}<br />
+        Status Multiplier: {{info.status}}x<br />
+        Generation: {{info.game}}<br />
+        Date: {{info.date}}<br />
+      </p>
+    </div>
+    <div class="imageClass">
+      <img src={{info.image}}>
+    </div>
+  </div>
+
+</ion-content>

@@ -63,7 +63,7 @@ export class AddCatchPage {
   }
 
   checkVariables(){
-    if(this.pokemonName && this.level && this.currentHP && this.attempts && this.status && this.game && this.date && this.image){
+    if(this.pokemonName && this.level && this.currentHP && this.attempts && this.status && this.game && this.date){
       this.closeModal();
     }
     else{
@@ -92,32 +92,53 @@ export class AddCatchPage {
   //function to close the modal
   closeModal() {
     //when called, the ViewController dismisses the modal
-    let data = {pokemonName: this.pokemonName, level: this.level, currentHP: this.currentHP, attempts: this.attempts,
-    stats: this.status, game: this.game, date: this.date, image: this.image}
-    this.viewCtrl.dismiss(data);
+    if(this.image){
+      let data = {pokemonName: this.pokemonName, level: this.level, currentHP: this.currentHP, attempts: this.attempts,
+        status: this.status, game: this.game, date: this.date, image: this.image}
+      this.viewCtrl.dismiss(data);
+    } else {
+      let data = {pokemonName: this.pokemonName, level: this.level, currentHP: this.currentHP, attempts: this.attempts,
+        status: this.status, game: this.game, date: this.date}
+      this.viewCtrl.dismiss(data);
+    }
   }
 
-  select(){
-    const loading = this.loadingCtrl.create({
-    content: 'Please wait...'
-    });
+  // select(){
+  //   let loading = this.loadingCtrl.create({
+  //     content: 'Please wait...'
+  //   });
+  //   console.log('yeet');
+  //
+  //   this.imagePicker.getPictures(this.options).then((results) => {
+  //
+  //     loading.present();
+  //     for (var i = 0; i < results.length; i++) {
+  //           this.base64.encodeFile(results[i]).then((base64File: string) => {
+  //             let base64Image = base64File;
+  //             this.image = base64Image;
+  //             this.imageStatus = 'Image Accepted'
+  //           }, (err) => {
+  //             console.log(err);
+  //           });
+  //     }
+  //     loading.dismiss();
+  //
+  //
+  //   }, (err) => { });
+  // }
 
-    this.imagePicker.getPictures(this.options).then((results) => {
+  imageSelected(files) {
+    if(files.length > 0) {
+      alert("Image Selected:" + files[0].name);
+    }
 
-      loading.present();
-      for (var i = 0; i < results.length; i++) {
-            this.base64.encodeFile(results[i]).then((base64File: string) => {
-              let base64Image = base64File;
-              this.image = base64Image;
-              this.imageStatus = 'Image Accepted'
-            }, (err) => {
-              console.log(err);
-            });
-      }
-      loading.dismiss();
+    let fileReader = new FileReader();
 
-
-    }, (err) => { });
+    fileReader.onload = e => {
+      let imageFile = fileReader.result;
+      this.image = imageFile;
+    }
+    fileReader.readAsDataURL(files[0]);
   }
 
 }

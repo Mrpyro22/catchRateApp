@@ -47,4 +47,9 @@ export class HistoryModalPage {
     console.log(this.items);
   }
 
+  viewItem(index){
+    let viewModal = this.modalCtrl.create('ViewModalPage', { data: this.items[index] });
+    viewModal.present();
+  }
+
 }
