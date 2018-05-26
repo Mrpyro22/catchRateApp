@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { AlertController } from 'ionic-angular';
-import { ImagePicker } from '@ionic-native/image-picker';
-import { Base64 } from '@ionic-native/base64';
 
 
 @IonicPage()
@@ -33,7 +31,7 @@ export class AddCatchPage {
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private storage: Storage, private alertCtrl: AlertController,
-    public loadingCtrl: LoadingController, private imagePicker: ImagePicker, private base64: Base64) {
+    public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {

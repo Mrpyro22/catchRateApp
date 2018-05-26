@@ -104,11 +104,11 @@ export class GraphModalPage {
   makeGraph(){
     if(this.statistic){
       if(this.statistic == 1){
-        var chartData = [];
-        var maxHP = this.maxHP;
-        var dataLabels = [];
-        for(var i = 0; i < 10; i++){
-          var tempStat = this.calcCatchRate(maxHP, 1, this.catchRate, this.pokeball, this.status);
+        let chartData = [];
+        let maxHP = this.maxHP;
+        let dataLabels = [];
+        for(let i = 0; i < 10; i++){
+          let tempStat = this.calcCatchRate(maxHP, 1, this.catchRate, this.pokeball, this.status);
           chartData.push(tempStat);
           dataLabels.push(maxHP);
           maxHP -= this.maxHP*0.1;
@@ -119,11 +119,11 @@ export class GraphModalPage {
         this.updateChart(chartData, dataLabels, 'line', 'Max HP vs. Chance to Catch');
 
       } else if (this.statistic == 2){
-        var chartData = [];
-        var currentHP = this.maxHP;
-        var dataLabels = [];
-        for(var i = 0; i < 10; i++){
-          var tempStat = this.calcCatchRate(this.maxHP, currentHP, this.catchRate, this.pokeball, this.status);
+        let chartData = [];
+        let currentHP = this.maxHP;
+        let dataLabels = [];
+        for(let i = 0; i < 10; i++){
+          let tempStat = this.calcCatchRate(this.maxHP, currentHP, this.catchRate, this.pokeball, this.status);
           chartData.push(tempStat);
           dataLabels.push(currentHP);
           currentHP -= this.maxHP*0.1;
@@ -133,30 +133,30 @@ export class GraphModalPage {
         this.updateChart(chartData, dataLabels, 'line', 'Current HP vs. Chance to Catch');
 
       } else if (this.statistic == 3){
-        var chartData = [];
-        var pokeBall = [1, 1.5, 2, 3, 3.5, 4];
-        for(var i = 0; i < 6; i++){
-          var tempStat = this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, pokeBall[i], this.status);
+        let chartData = [];
+        let pokeBall = [1, 1.5, 2, 3, 3.5, 4];
+        for(let i = 0; i < 6; i++){
+          let tempStat = this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, pokeBall[i], this.status);
           chartData.push(tempStat);
         }
         console.log(chartData);
         this.updateChart(chartData, pokeBall, 'bar', 'Pokeball vs. Chance to Catch');
 
       } else if (this.statistic == 4){
-        var chartData = [];
-        var status = [1, 1.5, 2];
-        for(var i = 0; i < 3; i++){
-          var tempStat = this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, this.pokeball, status[i]);
+        let chartData = [];
+        let status = [1, 1.5, 2];
+        for(let i = 0; i < 3; i++){
+          let tempStat = this.calcCatchRate(this.maxHP, this.currentHP, this.catchRate, this.pokeball, status[i]);
           chartData.push(tempStat);
         }
         console.log(chartData);
         this.updateChart(chartData, status, 'bar', 'Status vs. Chance to Catch');
 
       } else if (this.statistic == 5){
-        var chartData = [];
-        var catchRate = [3, 25, 30, 45, 60, 75, 90, 120, 150, 180, 200, 225, 255];
-        for(var i = 0; i < 13; i++){
-          var tempStat = this.calcCatchRate(this.maxHP, this.currentHP, catchRate[i], this.pokeball, this.status);
+        let chartData = [];
+        let catchRate = [3, 25, 30, 45, 60, 75, 90, 120, 150, 180, 200, 225, 255];
+        for(let i = 0; i < 13; i++){
+          let tempStat = this.calcCatchRate(this.maxHP, this.currentHP, catchRate[i], this.pokeball, this.status);
           chartData.push(tempStat);
         }
         console.log(chartData);

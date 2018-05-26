@@ -5,8 +5,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { ImagePicker } from '@ionic-native/image-picker';
-import { Base64 } from '@ionic-native/base64';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -45,8 +43,6 @@ import { TabsPage } from '../pages/tabs/tabs';
     StatusBar,
     SplashScreen,
     InAppBrowser,
-    ImagePicker,
-    Base64,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
