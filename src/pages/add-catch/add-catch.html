@@ -3,7 +3,7 @@
   <ion-navbar color="dark">
     <ion-title>My Catches</ion-title>
     <ion-buttons end>
-      <button ion-button (click)="closeModal()">Close</button>
+      <button ion-button (click)="cancelCheck()">Close</button>
     </ion-buttons>
   </ion-navbar>
 
@@ -56,6 +56,10 @@
       <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="date"></ion-datetime>
     </ion-item>
   </div>
+
+  <ion-item no-lines class="infoBlock2" (click)='select()'>
+    <ion-label>{{imageStatus}}</ion-label>
+  </ion-item>
 
   <div class="calcBtn" (click)="checkVariables()">
     <div [class]="className">
