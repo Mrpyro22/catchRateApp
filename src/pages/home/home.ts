@@ -17,6 +17,7 @@ export class HomePage {
   private iab: InAppBrowser) {
   }
 
+  //retrieve the theme and use it to style the page
   ionViewDidEnter(){
     this.storage.get("theme").then((val) => {
       this.theme = val;
@@ -81,11 +82,13 @@ export class HomePage {
     historyModal.present();
   }
 
+  //open a link to an external site with a stat calculator
   openStatCalc(){
     const browser = this.iab.create('http://www.psypokes.com/dex/stats.php');
     browser.show()
   }
 
+  //open a link to an external site that explains the algorithms the games use
   openAlgorithms(){
     const browser = this.iab.create('https://www.dragonflycave.com/mechanics/gen-iii-iv-capturing');
     browser.show()

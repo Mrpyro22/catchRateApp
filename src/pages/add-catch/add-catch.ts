@@ -11,6 +11,7 @@ import { AlertController } from 'ionic-angular';
 })
 export class AddCatchPage {
 
+  //input variables
   pokemonName: any;
   level: any;
   currentHP: any;
@@ -19,11 +20,12 @@ export class AddCatchPage {
   game: any;
   date: any;
 
+  //scss variables
   className: any = 'circle';
   imgSrc: any = 'assets/imgs/pokeball.png';
-
   theme: any;
 
+  //adding an image
   image: any;
   imageStatus: any = 'Add an image';
   options: any = {
@@ -38,6 +40,7 @@ export class AddCatchPage {
     console.log('ionViewDidLoad AddCatchPage');
   }
 
+  //retrieve theme and use it to style the page
   ionViewDidEnter(){
     this.storage.get("theme").then((val) => {
       this.theme = val;
@@ -60,8 +63,10 @@ export class AddCatchPage {
     });
   }
 
+  //check all variables are valid
   checkVariables(){
     if(this.pokemonName && this.level && this.currentHP && this.attempts && this.status && this.game && this.date){
+      //if all are valid, close the modal and return the data
       this.closeModal();
     }
     else{
@@ -70,6 +75,7 @@ export class AddCatchPage {
     }
   }
 
+  //used to ensure cancel button doesn't return anything
   cancelCheck(){
     this.pokemonName = '';
     this.closeModal();
@@ -90,6 +96,7 @@ export class AddCatchPage {
   //function to close the modal
   closeModal() {
     //when called, the ViewController dismisses the modal
+    //if there is an image, pass it back, otherwise leave out this.image
     if(this.image){
       let data = {pokemonName: this.pokemonName, level: this.level, currentHP: this.currentHP, attempts: this.attempts,
         status: this.status, game: this.game, date: this.date, image: this.image}
@@ -101,6 +108,7 @@ export class AddCatchPage {
     }
   }
 
+  //select an image for the entry using the fileReader
   imageSelected(files) {
     if(files.length > 0) {
       alert("Image Selected:" + files[0].name);

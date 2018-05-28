@@ -15,6 +15,7 @@ export class GraphModalPage {
   chart: any;
 
   statistic: any;
+  accuracy: any = 10000;
 
   maxHP: any;
   currentHP: any;
@@ -35,6 +36,7 @@ export class GraphModalPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad GraphModalPage');
 
+    //create a blank chart
     this.chart = new Chart(this.canvas.nativeElement, {
       type: 'line',
       data: [1, 2, 3, 4, 5]
@@ -43,6 +45,7 @@ export class GraphModalPage {
     this.chart.update();
   }
 
+  //retrieve the theme and use it to style the page
   ionViewDidEnter(){
     this.storage.get("theme").then((val) => {
       this.theme = val;
@@ -68,6 +71,11 @@ export class GraphModalPage {
         this.backgroundClass = 'scroll-content-pokeball';
       }
     });
+    //get the accuracy set by the user in settings
+    this.storage.get("accuracy").then((val) => {
+      this.accuracy = val;
+      console.log(this.accuracy);
+    });
   }
 
   //function to close the modal
@@ -76,6 +84,7 @@ export class GraphModalPage {
     this.viewCtrl.dismiss();
   }
 
+  //update the chart using the information passed in to vary the labels, data, title and type of chart
   updateChart(chartData, dataLabels, graphType, graphTitle){
     this.chart = new Chart(this.canvas.nativeElement, {
       type: graphType,
@@ -96,13 +105,18 @@ export class GraphModalPage {
         }
       }
     })
-
+    //update the chart and stop the button animation
     this.chart.update();
     this.stopAnimation();
   }
 
+  //make a graph based on the data entered
   makeGraph(){
     if(this.statistic){
+      //based on which statistic is chosen as the focus, calculate the catch rate against that statistic.
+      //a number of tests are run to retrieve the statistic
+
+      // for maxHP show what happens as maxHP decreases from the given value in increments of 10%
       if(this.statistic == 1){
         let chartData = [];
         let maxHP = this.maxHP;
@@ -118,6 +132,7 @@ export class GraphModalPage {
         console.log(dataLabels);
         this.updateChart(chartData, dataLabels, 'line', 'Max HP vs. Chance to Catch');
 
+      //for currentHP show what happens when currentHP decreases in increments of 10%
       } else if (this.statistic == 2){
         let chartData = [];
         let currentHP = this.maxHP;
@@ -132,6 +147,7 @@ export class GraphModalPage {
         console.log(chartData);
         this.updateChart(chartData, dataLabels, 'line', 'Current HP vs. Chance to Catch');
 
+      // show a bar graph of catch rate vs catch rate of the pokeball used for all values pokeballs can have
       } else if (this.statistic == 3){
         let chartData = [];
         let pokeBall = [1, 1.5, 2, 3, 3.5, 4];
@@ -142,6 +158,7 @@ export class GraphModalPage {
         console.log(chartData);
         this.updateChart(chartData, pokeBall, 'bar', 'Pokeball vs. Chance to Catch');
 
+      //for status, show a bar graph of catch rate vs each status effect possible
       } else if (this.statistic == 4){
         let chartData = [];
         let status = [1, 1.5, 2];
@@ -152,6 +169,7 @@ export class GraphModalPage {
         console.log(chartData);
         this.updateChart(chartData, status, 'bar', 'Status vs. Chance to Catch');
 
+      //for catch rate, show how this intrinsic value effects the catch rate of a pokemon on a bar graph
       } else if (this.statistic == 5){
         let chartData = [];
         let catchRate = [3, 25, 30, 45, 60, 75, 90, 120, 150, 180, 200, 225, 255];
@@ -164,6 +182,7 @@ export class GraphModalPage {
 
       }
     } else {
+      // if no statistic was selected, prompt the user to select one.
       this.stopAnimation();
       let alert = this.alertCtrl.create({
           title: 'No Statistic Selected',
@@ -229,7 +248,7 @@ export class GraphModalPage {
     //generate b by calling the generate b function, provided the conditions to catch the pokemon
     var b = this.generateB(((3.0*maxHP-2.0*currentHP)*catchRate*pokeball)/(3.0*maxHP)*status);
     //tests variable gives the number of times the catch will be calculated. this many tests will be done and the average will be used to give results
-    var tests = 10000;
+    var tests = this.accuracy;
     //results list stores all the tests to be averaged later
     var results = [];
 

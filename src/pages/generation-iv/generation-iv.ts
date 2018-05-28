@@ -22,6 +22,7 @@ export class GenerationIvPage {
   //other vars
   avgAttempts: any;
   percentChance: any;
+  accuracy: any = 10000;
 
   //scss change vars
   theme: any;
@@ -32,6 +33,7 @@ export class GenerationIvPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private storage: Storage) {
   }
 
+  //retrieve the theme and use it to style the page
   ionViewDidEnter(){
     this.storage.get("theme").then((val) => {
       this.theme = val;
@@ -56,6 +58,11 @@ export class GenerationIvPage {
         this.imgSrc = 'assets/imgs/pokeball.png';
         this.backgroundClass = 'scroll-content-pokeball';
       }
+    });
+    //get the accuracy set by the user in settings
+    this.storage.get("accuracy").then((val) => {
+      this.accuracy = val;
+      console.log(this.accuracy);
     });
   }
 
@@ -93,7 +100,7 @@ export class GenerationIvPage {
     //generate b by calling the generate b function, provided the conditions to catch the pokemon
     var b = this.generateB(((3.0*maxHP-2.0*currentHP)*catchRate*pokeball)/(3.0*maxHP)*status);
     //tests variable gives the number of times the catch will be calculated. this many tests will be done and the average will be used to give results
-    var tests = 10000;
+    var tests = this.accuracy;
     //results list stores all the tests to be averaged later
     var results = [];
 

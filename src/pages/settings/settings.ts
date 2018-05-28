@@ -10,17 +10,20 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 })
 export class SettingsPage {
 
+//scss variables and accuracy variable
   theme: any;
   imgSrc: any = 'assets/imgs/pokeball.png';
   accuracy: any = 10000;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private alertCtrl: AlertController, private socialSharing: SocialSharing) {
+    //retrieve accuracy value from storage
     this.storage.get("accuracy").then((val) => {
       this.accuracy = val;
       console.log(this.accuracy);
     });
   }
 
+  //retrieve the theme and use it to style the page
   ionViewDidEnter(){
     this.storage.get('theme').then((val) => {
       this.theme = val;
@@ -70,6 +73,7 @@ export class SettingsPage {
     }
   }
 
+  //facebook sharing
   shareFacebook(){
     this.socialSharing.shareViaFacebook('Check out this awesome app! Calculate the catch rates in Pokemon games!', 'assets/imgs/icon.png', 'www.pokecatch.com').then(() => {
       // Success!
@@ -78,6 +82,7 @@ export class SettingsPage {
     });
   }
 
+  //twitter sharing
   shareTwitter(){
     this.socialSharing.shareViaFacebook('Check out this awesome app! Calculate the catch rates in Pokemon games!', 'assets/imgs/icon.png', 'www.pokecatch.com').then(() => {
       // Success!
@@ -86,10 +91,12 @@ export class SettingsPage {
     });
   }
 
+  //change the accuracy the app uses when calculating catch rates (number of tests done)
   changeAccuracy(){
     this.storage.set('accuracy', this.accuracy);
   }
 
+  //about us alert
   about(){
     //create an alert
     let alert = this.alertCtrl.create({
@@ -101,6 +108,7 @@ export class SettingsPage {
       alert.present();
   }
 
+  //info on how to use the apps accuracy setting
   howTo(){
     //create an alert
     let alert = this.alertCtrl.create({

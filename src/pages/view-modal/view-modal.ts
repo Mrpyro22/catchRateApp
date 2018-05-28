@@ -9,20 +9,24 @@ import { Storage } from '@ionic/storage';
 })
 export class ViewModalPage {
 
+  //scss variables
   theme: any;
   backgroundClass: any = 'scroll-content-ultraball';
+  //variables for the data being displayed
   info: any = {pokemonName: '', level: '', currentHP: '', attempts: '',
     status: '', game: '', date: '', image: ''}
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private storage: Storage) {
   }
 
+  //get the data for the item being displayed
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewModalPage');
     this.info = this.navParams.get('data');
     console.log('yes');
   }
 
+  //retrieve the theme and use it to style the page
   ionViewDidEnter(){
     this.storage.get("theme").then((val) => {
       this.theme = val;
