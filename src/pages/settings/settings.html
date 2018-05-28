@@ -5,9 +5,9 @@
 </div>
 
 <div class="block1">
-  <ion-item>About Us</ion-item>
-  <ion-item>Share Via Facebook</ion-item>
-  <ion-item no-lines>Share Via Text</ion-item>
+  <ion-item (click)="about()">About Us</ion-item>
+  <ion-item (click)="shareFacebook()">Share Via Facebook</ion-item>
+  <ion-item no-lines (click)="shareTwitter()">Share Via Twitter</ion-item>
 </div>
 
 <div class="block2">
@@ -20,8 +20,16 @@
         <ion-option [value]=4>Master Ball</ion-option>
       </ion-select>
   </ion-item>
-  <ion-item>Set Accuracy</ion-item>
-  <ion-item no-lines>Additional Info</ion-item>
+  <ion-item>
+    <ion-label>Accuracy</ion-label>
+      <ion-select [(ngModel)]="accuracy" (ionChange)="changeAccuracy()">
+        <ion-option [value]=1000>1000 Tests</ion-option>
+        <ion-option [value]=10000>10000 Tests</ion-option>
+        <ion-option [value]=50000>50000 Tests</ion-option>
+        <ion-option [value]=100000>100000 Tests</ion-option>
+      </ion-select>
+  </ion-item>
+  <ion-item no-lines (click)="howTo()">Using Accuracy</ion-item>
 </div>
 
 </ion-content>

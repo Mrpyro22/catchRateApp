@@ -27,6 +27,11 @@ export class MyApp {
           this.storage.set('items', []);
         }
       });
+      this.storage.get('accuracy').then((val) => {
+        if(val == null){
+          this.storage.set('accuracy', 10000);
+        }
+      });
     });
   }
 }

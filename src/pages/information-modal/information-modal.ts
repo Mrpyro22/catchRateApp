@@ -11,6 +11,7 @@ export class InformationModalPage {
   title: any;
   info: any;
   generationNumber: any;
+  otherInfo: any = '';
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
@@ -30,12 +31,13 @@ export class InformationModalPage {
     } else if (this.generationNumber == "V"){
       this.title = "Gen V Information";
       this.info = "How to use the Generation V Calculator:";
+      this.otherInfo = "Lastly, select an EntraLink Ratio if you have one active, and select a range matching the Pokemon caught in your Pokedex if you are in long grass, otherwise select 'normal grass'!"
 
       //generation 6
     } else if (this.generationNumber == "VI"){
       this.title = "Gen VI Information";
       this.info = "How to use the Generation VI Calculator:";
-
+      this.otherInfo = "Lastly, select an O-Power or Roto catch boost status (for Gen VI and VII respectively) if you have one active, otherwise choose 'none'!"
     }
   }
 
